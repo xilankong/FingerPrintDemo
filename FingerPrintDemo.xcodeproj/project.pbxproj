@@ -12,6 +12,7 @@
 		6F1EAD6C1DED58370038B041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EAD6A1DED58370038B041 /* Main.storyboard */; };
 		6F1EAD6E1DED58370038B041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EAD6D1DED58370038B041 /* Assets.xcassets */; };
 		6F1EAD711DED58370038B041 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EAD6F1DED58370038B041 /* LaunchScreen.storyboard */; };
+		6F1EAD7B1DED5A360038B041 /* ViewControllerTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EAD7A1DED5A360038B041 /* ViewControllerTwo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		6F1EAD6D1DED58370038B041 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F1EAD701DED58370038B041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F1EAD721DED58370038B041 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F1EAD781DED5A350038B041 /* FingerPrintDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FingerPrintDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		6F1EAD791DED5A360038B041 /* ViewControllerTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTwo.h; sourceTree = "<group>"; };
+		6F1EAD7A1DED5A360038B041 /* ViewControllerTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTwo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,9 @@
 			children = (
 				6F1EAD661DED58370038B041 /* AppDelegate.swift */,
 				6F1EAD681DED58370038B041 /* ViewController.swift */,
+				6F1EAD791DED5A360038B041 /* ViewControllerTwo.h */,
+				6F1EAD7A1DED5A360038B041 /* ViewControllerTwo.m */,
+				6F1EAD781DED5A350038B041 /* FingerPrintDemo-Bridging-Header.h */,
 				6F1EAD6A1DED58370038B041 /* Main.storyboard */,
 				6F1EAD6D1DED58370038B041 /* Assets.xcassets */,
 				6F1EAD6F1DED58370038B041 /* LaunchScreen.storyboard */,
@@ -97,6 +104,7 @@
 					6F1EAD621DED58370038B041 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 9Q78B6R423;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1EAD7B1DED5A360038B041 /* ViewControllerTwo.m in Sources */,
 				6F1EAD691DED58370038B041 /* ViewController.swift in Sources */,
 				6F1EAD671DED58370038B041 /* AppDelegate.swift in Sources */,
 			);
@@ -204,7 +213,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -248,7 +257,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -261,11 +270,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9Q78B6R423;
 				INFOPLIST_FILE = FingerPrintDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jfz.FingerPrintDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FingerPrintDemo/FingerPrintDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,11 +286,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9Q78B6R423;
 				INFOPLIST_FILE = FingerPrintDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jfz.FingerPrintDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FingerPrintDemo/FingerPrintDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
