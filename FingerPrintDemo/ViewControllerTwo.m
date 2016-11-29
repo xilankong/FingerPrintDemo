@@ -100,7 +100,10 @@
         }];
         
     } else {
-        
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            
+            self.resultLabel.text = @"您的设备不支持指纹解锁";
+        }];
     }
     
     
