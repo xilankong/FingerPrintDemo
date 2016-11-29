@@ -4,7 +4,7 @@
 //
 //  Created by yanghuang on 16/11/29.
 //  Copyright © 2016年 yanghuang. All rights reserved.
-//
+//  https://developer.apple.com/reference/localauthentication?language=objc
 
 import UIKit
 import LocalAuthentication
