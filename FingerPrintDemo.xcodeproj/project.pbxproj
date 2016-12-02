@@ -13,6 +13,7 @@
 		6F1EAD6E1DED58370038B041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EAD6D1DED58370038B041 /* Assets.xcassets */; };
 		6F1EAD711DED58370038B041 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EAD6F1DED58370038B041 /* LaunchScreen.storyboard */; };
 		6F1EAD7B1DED5A360038B041 /* ViewControllerTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EAD7A1DED5A360038B041 /* ViewControllerTwo.m */; };
+		6FC7DA881DF120D800C4E717 /* btnViewOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FC7DA871DF120D800C4E717 /* btnViewOne.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		6F1EAD781DED5A350038B041 /* FingerPrintDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FingerPrintDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F1EAD791DED5A360038B041 /* ViewControllerTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTwo.h; sourceTree = "<group>"; };
 		6F1EAD7A1DED5A360038B041 /* ViewControllerTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTwo.m; sourceTree = "<group>"; };
+		6FC7DA871DF120D800C4E717 /* btnViewOne.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = btnViewOne.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				6F1EAD6D1DED58370038B041 /* Assets.xcassets */,
 				6F1EAD6F1DED58370038B041 /* LaunchScreen.storyboard */,
 				6F1EAD721DED58370038B041 /* Info.plist */,
+				6FC7DA871DF120D800C4E717 /* btnViewOne.xib */,
 			);
 			path = FingerPrintDemo;
 			sourceTree = "<group>";
@@ -132,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FC7DA881DF120D800C4E717 /* btnViewOne.xib in Resources */,
 				6F1EAD711DED58370038B041 /* LaunchScreen.storyboard in Resources */,
 				6F1EAD6E1DED58370038B041 /* Assets.xcassets in Resources */,
 				6F1EAD6C1DED58370038B041 /* Main.storyboard in Resources */,
@@ -316,6 +320,7 @@
 				6F1EAD771DED58370038B041 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

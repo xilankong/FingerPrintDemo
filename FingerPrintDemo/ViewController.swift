@@ -10,15 +10,11 @@ import UIKit
 import LocalAuthentication
 
 class ViewController: UIViewController {
-    var btn : UIButton = {
-        var btn = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 100));
-        btn.setTitle("进入 OC验证", for: UIControlState.normal);
-        btn.setTitleColor(UIColor.blue, for: UIControlState.normal);
-        return btn;
-    }();
     
+    @IBOutlet weak var actionButton : UIButton!;
+    @IBOutlet weak var goButton : UIButton!;
     var label : UILabel = {
-        var label = UILabel(frame: CGRect(x: 0, y: 150, width: 320, height: 40));
+        var label = UILabel(frame: CGRect(x: 0, y: 300, width: 320, height: 40));
         label.textColor = UIColor.black;
         label.textAlignment = NSTextAlignment.center;
         return label;
@@ -26,12 +22,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         self.title = "Swift 指纹解锁";
-        super.viewDidLoad()
-        self.view.addSubview(btn);
+        super.viewDidLoad();
         self.view.addSubview(label);
-        btn.addTarget(self, action: #selector(goOC), for: UIControlEvents.touchUpInside)
         
-        self.authenticate();
+        Bundle.main.loadNibNamed("btnViewOne", owner: self, options: nil);
+        actionButton.frame = CGRect(x: 0, y: 100, width: 150, height: 50);
+        actionButton.center = CGPoint(x: self.view.center.x, y: actionButton.center.y);
+        
+        actionButton.addTarget(self, action: #selector(authenticate), for: UIControlEvents.touchUpInside)
+        self.view.addSubview(actionButton);
+        
+        goButton.frame = CGRect(x: 0, y: 200, width: 150, height: 50);
+        goButton.center = CGPoint(x: self.view.center.x, y: goButton.center.y);
+        
+        goButton.addTarget(self, action: #selector(goOC), for: UIControlEvents.touchUpInside)
+        self.view.addSubview(goButton);
     }
 
     override func didReceiveMemoryWarning() {
