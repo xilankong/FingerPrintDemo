@@ -8,21 +8,6 @@
 
 import UIKit
 
-protocol DragButtonProtocol {
-    //长按
-    func DragButtonLongPressAction(button : DragButton);
-    //点击
-    func DragButtonClickAction(button : DragButton);
-    //双击
-    func DragButtonDoubleClickAction(button : DragButton);
-    //拖拽
-    func DragButtonDraggingAction(button : DragButton);
-    //停止拖拽
-    func DragButtonDragDoneAction(button : DragButton);
-//    func DragButtonDraggingAction(button : DragButton);
-}
-
-
 
 class DragButton: UIButton {
     
@@ -33,7 +18,7 @@ class DragButton: UIButton {
     
     //是否拖拽ing
     var isDragging : Bool?
-    //是否单击被取消
+    //是否单击被取消(比如双击或者拖拽取消掉单击事件)
     var singleClickBeenCancled : Bool?
     //拖拽开始center
     var beginLocation : CGPoint?
@@ -44,6 +29,7 @@ class DragButton: UIButton {
     //是否自动吸附
     var autoDocking : Bool?
     
+    //单击回调
     var _clickClosure : btnClosure?
     var clickClosure : btnClosure? {
         get {
@@ -58,9 +44,13 @@ class DragButton: UIButton {
             
         }
     }
-    
+    //双击回调
     var doubleClickClosure : btnClosure?
+    //拖拽回调
     var draggingClosure : btnClosure?
+    //拖拽结束回调
+    var dragDoneClosure : btnClosure?
+    //自动吸附结束回调
     var autoDockEndClosure : btnClosure?
     
     required init?(coder aDecoder: NSCoder) {
@@ -96,9 +86,12 @@ class DragButton: UIButton {
     }
     
     //MARK:单击响应
+    
     func singleClickAction(_ btn : DragButton) {
-        //双击 拖拽 无闭包都不执行
-        guard (self.singleClickBeenCancled! || self.isDragging! || self.clickClosure != nil) else {
+        //单击被取消 或者 拖拽、 无闭包都不执行
+//        print("singleClickAction" )
+//        print(self.isDragging)
+        guard (self.singleClickBeenCancled == false && self.isDragging == false && self.clickClosure != nil) else {
             return
         }
         self.clickClosure!(self);
@@ -116,17 +109,25 @@ class DragButton: UIButton {
     }
     //MARK:拖拽开始
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.isDragging = true;
+        self.isDragging = false; //开始将dragging置为否
         super.touchesBegan(touches, with: event);
+        
         let touch = touches.first;
         if touch?.tapCount == 2 {
+            //截断单击
             self.singleClickBeenCancled = true;
-            //doubleClick block
+            //双击回调
+            guard (self.doubleClickClosure != nil) else {
+                return
+            }
+            self.doubleClickClosure!(self);
         } else {
             self.singleClickBeenCancled = false;
+//            print("touchesBegan" )
+//            print(self.isDragging)
         }
         self.beginLocation = touch?.location(in: self);
-        
+
     }
     //MARK:拖拽过程
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -156,16 +157,25 @@ class DragButton: UIButton {
             } else if self.center.y <= topLimitY{
                  self.center = CGPoint(x: self.center.x, y: topLimitY)
             }
-            //dragging block
+            //拖拽回调
+            guard (self.draggingClosure != nil) else {
+                return
+            }
+            self.draggingClosure!(self);
         }
     }
     //MARK:拖拽结束
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
-        if self.isDragging! {
+        //是否之前处于拖拽状态,单击之前不处于拖拽
+        if self.isDragging!{
             self.singleClickBeenCancled = true;
-            //drag done block
+            //拖拽结束回调
+            if self.dragDoneClosure != nil {
+                self.dragDoneClosure!(self);
+            }
         }
+
         if self.isDragging! && self.autoDocking! {
             let superviewFrame : CGRect = (self.superview?.frame)!;
             let frame = self.frame;
@@ -175,8 +185,11 @@ class DragButton: UIButton {
                      self.center = CGPoint(x: superviewFrame.size.width - frame.size.width / 2, y: self.center.y) ;
                     //自动吸附中
                 }, completion: { (success) in
-                    //自动吸附结束
-                    print("")
+                    //自动吸附结束回调
+                    guard (self.autoDockEndClosure != nil) else {
+                        return
+                    }
+                    self.autoDockEndClosure!(self);
                 })
                 
             } else {
@@ -185,22 +198,27 @@ class DragButton: UIButton {
                     self.center = CGPoint(x:frame.size.width / 2, y: self.center.y);
                     //自动吸附中
                 }, completion: { (success) in
-                    //自动吸附结束
-                    print("")
+                    //自动吸附结束回调
+                    guard (self.autoDockEndClosure != nil) else {
+                        return
+                    }
+                    self.autoDockEndClosure!(self);
                 })
             }
         }
         self.isDragging = false;
+//        print("touchesEnded" )
+//        print(self.isDragging)
     }
     
     //MARK:拖拽取消
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.isDragging = false;
-        super.touchesBegan(touches, with: event);
+        super.touchesCancelled(touches, with: event);
     }
     
     
-    //TODO:未定
+    //MARK:移除
     func removeFromKeyWindow() {
         for view : UIView in (UIApplication.shared.keyWindow?.subviews)! {
             if view.isKind(of: DragButton.classForCoder()) {
@@ -210,5 +228,4 @@ class DragButton: UIButton {
     }
     
 //    func setClick
-    //FIXME:站定
 }

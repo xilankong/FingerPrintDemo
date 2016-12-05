@@ -40,12 +40,19 @@ class ViewController: UIViewController {
             //拖拽回调
             self?.dragButtonDragingAction(dragBtn)
         }
+        dragBtn.dragDoneClosure = {
+            [weak self]
+            (dragBtn) in
+            //拖拽结束回调
+            self?.dragButtonDragDoneAction(dragBtn)
+        }
         dragBtn.autoDockEndClosure = {
             [weak self]
             (dragBtn) in
-            //回调
+            //自动吸附回调
             self?.dragButtonAutoDockEndAction(dragBtn)
         }
+
         return dragBtn;
     }();
 
@@ -153,6 +160,10 @@ class ViewController: UIViewController {
     func dragButtonAutoDockEndAction(_ btn : DragButton) {
         print("buttonAutoDockEnd")
     }
+    func dragButtonDragDoneAction(_ btn : DragButton) {
+        print("buttonDragDone")
+    }
+
 
 }
 
