@@ -87,6 +87,7 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true);
     }
     
+    //  代码取消弹窗 if (context) {  [context invalidate];  }
     //指纹验证
     func authenticate() {
 
