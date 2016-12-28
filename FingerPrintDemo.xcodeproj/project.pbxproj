@@ -109,7 +109,6 @@
 				TargetAttributes = {
 					6F1EAD621DED58370038B041 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 9Q78B6R423;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -279,10 +278,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 9Q78B6R423;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FingerPrintDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jfz.FingerPrintDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huang.FingerPrintDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FingerPrintDemo/FingerPrintDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -295,10 +294,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 9Q78B6R423;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FingerPrintDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jfz.FingerPrintDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huang.FingerPrintDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FingerPrintDemo/FingerPrintDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
