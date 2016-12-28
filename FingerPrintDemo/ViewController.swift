@@ -107,7 +107,11 @@ class ViewController: UIViewController {
                         }
                     } else {
                         //根据错误Code不一样，区分不同失败原因
-                        switch errorTwo! {
+                        guard error != nil else {
+                            return
+                        }
+                        
+                        switch LAError(_nsError: error!).code {
                             
                         case LAError.userCancel:
                             DispatchQueue.main.async  {
