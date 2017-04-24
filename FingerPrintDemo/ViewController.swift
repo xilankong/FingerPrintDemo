@@ -19,42 +19,6 @@ class ViewController: UIViewController {
         label.textAlignment = NSTextAlignment.center;
         return label;
     }();
-    
-    lazy var dragBtn : DragButton = {
-        var dragBtn = DragButton(frame: CGRect(x: 0, y: 400, width: 50, height: 50))
-        dragBtn.clickClosure = {
-            [weak self]
-            (dragBtn) in
-            //单击回调
-            self?.dragButtonClickAction(dragBtn)
-        }
-        dragBtn.doubleClickClosure = {
-            [weak self]
-            (dragBtn) in
-            //双击回调
-            self?.dragButtonDoubleClickAction(dragBtn)
-        }
-        dragBtn.draggingClosure = {
-            [weak self]
-            (dragBtn) in
-            //拖拽回调
-            self?.dragButtonDragingAction(dragBtn)
-        }
-        dragBtn.dragDoneClosure = {
-            [weak self]
-            (dragBtn) in
-            //拖拽结束回调
-            self?.dragButtonDragDoneAction(dragBtn)
-        }
-        dragBtn.autoDockEndClosure = {
-            [weak self]
-            (dragBtn) in
-            //自动吸附回调
-            self?.dragButtonAutoDockEndAction(dragBtn)
-        }
-
-        return dragBtn;
-    }();
 
     override func viewDidLoad() {
         self.title = "Swift 指纹解锁";
@@ -70,10 +34,8 @@ class ViewController: UIViewController {
         
         goButton.frame = CGRect(x: 0, y: 200, width: 150, height: 50);
         goButton.center = CGPoint(x: self.view.center.x, y: goButton.center.y);
-        
         goButton.addTarget(self, action: #selector(goOC), for: UIControlEvents.touchUpInside)
         self.view.addSubview(goButton);
-        self.view.addSubview(dragBtn);
     }
 
     override func didReceiveMemoryWarning() {
@@ -149,26 +111,5 @@ class ViewController: UIViewController {
         }
         
     }
-    
-    
-    func dragButtonClickAction(_ btn : DragButton) {
-        print("buttonClick")
-    }
-
-    func dragButtonDoubleClickAction(_ btn : DragButton) {
-        print("buttonDoubleClick")
-    }
-
-    func dragButtonDragingAction(_ btn : DragButton) {
-        print("buttonDraging")
-    }
-    func dragButtonAutoDockEndAction(_ btn : DragButton) {
-        print("buttonAutoDockEnd")
-    }
-    func dragButtonDragDoneAction(_ btn : DragButton) {
-        print("buttonDragDone")
-    }
-
-
 }
 

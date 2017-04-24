@@ -13,7 +13,6 @@
 		6F1EAD6E1DED58370038B041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EAD6D1DED58370038B041 /* Assets.xcassets */; };
 		6F1EAD711DED58370038B041 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EAD6F1DED58370038B041 /* LaunchScreen.storyboard */; };
 		6F1EAD7B1DED5A360038B041 /* ViewControllerTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EAD7A1DED5A360038B041 /* ViewControllerTwo.m */; };
-		6F84D19C1DF51467002FE78B /* DragButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F84D19B1DF51467002FE78B /* DragButton.swift */; };
 		6FC7DA881DF120D800C4E717 /* btnViewOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FC7DA871DF120D800C4E717 /* btnViewOne.xib */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		6F1EAD781DED5A350038B041 /* FingerPrintDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FingerPrintDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F1EAD791DED5A360038B041 /* ViewControllerTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTwo.h; sourceTree = "<group>"; };
 		6F1EAD7A1DED5A360038B041 /* ViewControllerTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTwo.m; sourceTree = "<group>"; };
-		6F84D19B1DF51467002FE78B /* DragButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragButton.swift; sourceTree = "<group>"; };
 		6FC7DA871DF120D800C4E717 /* btnViewOne.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = btnViewOne.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +62,6 @@
 			children = (
 				6F1EAD661DED58370038B041 /* AppDelegate.swift */,
 				6F1EAD681DED58370038B041 /* ViewController.swift */,
-				6F84D19B1DF51467002FE78B /* DragButton.swift */,
 				6F1EAD791DED5A360038B041 /* ViewControllerTwo.h */,
 				6F1EAD7A1DED5A360038B041 /* ViewControllerTwo.m */,
 				6F1EAD781DED5A350038B041 /* FingerPrintDemo-Bridging-Header.h */,
@@ -152,7 +149,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F1EAD7B1DED5A360038B041 /* ViewControllerTwo.m in Sources */,
-				6F84D19C1DF51467002FE78B /* DragButton.swift in Sources */,
 				6F1EAD691DED58370038B041 /* ViewController.swift in Sources */,
 				6F1EAD671DED58370038B041 /* AppDelegate.swift in Sources */,
 			);
