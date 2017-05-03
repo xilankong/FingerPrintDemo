@@ -28,7 +28,6 @@
     self.resultLabel.text = @"";
     [self.view addSubview:self.resultLabel];
     
-    
     [self authenticateUser];
 }
 

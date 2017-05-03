@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F0CB8261EB97D4F00D038C9 /* FingerPasswordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0CB8251EB97D4F00D038C9 /* FingerPasswordHelper.swift */; };
 		6F1EAD671DED58370038B041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EAD661DED58370038B041 /* AppDelegate.swift */; };
 		6F1EAD691DED58370038B041 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EAD681DED58370038B041 /* ViewController.swift */; };
 		6F1EAD6C1DED58370038B041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EAD6A1DED58370038B041 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F0CB8251EB97D4F00D038C9 /* FingerPasswordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPasswordHelper.swift; sourceTree = "<group>"; };
 		6F1EAD631DED58370038B041 /* FingerPrintDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingerPrintDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F1EAD661DED58370038B041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F1EAD681DED58370038B041 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				6F1EAD661DED58370038B041 /* AppDelegate.swift */,
 				6F1EAD681DED58370038B041 /* ViewController.swift */,
+				6F0CB8251EB97D4F00D038C9 /* FingerPasswordHelper.swift */,
 				6F1EAD791DED5A360038B041 /* ViewControllerTwo.h */,
 				6F1EAD7A1DED5A360038B041 /* ViewControllerTwo.m */,
 				6F1EAD781DED5A350038B041 /* FingerPrintDemo-Bridging-Header.h */,
@@ -151,6 +154,7 @@
 				6F1EAD7B1DED5A360038B041 /* ViewControllerTwo.m in Sources */,
 				6F1EAD691DED58370038B041 /* ViewController.swift in Sources */,
 				6F1EAD671DED58370038B041 /* AppDelegate.swift in Sources */,
+				6F0CB8261EB97D4F00D038C9 /* FingerPasswordHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

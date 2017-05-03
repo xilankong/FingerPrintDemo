@@ -11,31 +11,31 @@ import LocalAuthentication
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var actionButton : UIButton!;
-    @IBOutlet weak var goButton : UIButton!;
+    @IBOutlet weak var actionButton : UIButton!
+    @IBOutlet weak var goButton : UIButton!
     var label : UILabel = {
-        var label = UILabel(frame: CGRect(x: 0, y: 300, width: 320, height: 40));
-        label.textColor = UIColor.black;
-        label.textAlignment = NSTextAlignment.center;
-        return label;
-    }();
+        var label = UILabel(frame: CGRect(x: 0, y: 300, width: 320, height: 40))
+        label.textColor = UIColor.black
+        label.textAlignment = NSTextAlignment.center
+        return label
+    }()
 
     override func viewDidLoad() {
-        self.title = "Swift 指纹解锁";
-        super.viewDidLoad();
-        self.view.addSubview(label);
+        self.title = "Swift 指纹解锁"
+        super.viewDidLoad()
+        self.view.addSubview(label)
         
-        Bundle.main.loadNibNamed("btnViewOne", owner: self, options: nil);
-        actionButton.frame = CGRect(x: 0, y: 100, width: 150, height: 50);
-        actionButton.center = CGPoint(x: self.view.center.x, y: actionButton.center.y);
+        Bundle.main.loadNibNamed("btnViewOne", owner: self, options: nil)
+        actionButton.frame = CGRect(x: 0, y: 100, width: 150, height: 50)
+        actionButton.center = CGPoint(x: self.view.center.x, y: actionButton.center.y)
         
         actionButton.addTarget(self, action: #selector(authenticate), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(actionButton);
+        self.view.addSubview(actionButton)
         
-        goButton.frame = CGRect(x: 0, y: 200, width: 150, height: 50);
-        goButton.center = CGPoint(x: self.view.center.x, y: goButton.center.y);
+        goButton.frame = CGRect(x: 0, y: 200, width: 150, height: 50)
+        goButton.center = CGPoint(x: self.view.center.x, y: goButton.center.y)
         goButton.addTarget(self, action: #selector(goOC), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(goButton);
+        self.view.addSubview(goButton)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,71 +45,29 @@ class ViewController: UIViewController {
 
     func goOC() {
         
-        let vc : UIViewController = ViewControllerTwo();
-        self.navigationController?.pushViewController(vc, animated: true);
+        let vc : UIViewController = ViewControllerTwo()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    //  代码取消弹窗 if (context) {  [context invalidate];  }
+    //代码取消弹窗 if (context) {  [context invalidate];  }
+    
     //指纹验证
     func authenticate() {
-
-        if #available(iOS 8.0,OSX 10.12, *){ //IOS 版本判断 低于版本无需调用
-            let context : LAContext = LAContext();
-            var error : NSError? = nil;
-            let msg : String = "使用您设备解锁指纹解锁";
-            //判断设备支持状态
-            if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+        FingerPasswordHelper.FingerPasswordUnLock(withMsg: "使用您设备解锁指纹解锁") { (result: FingerPasswordHelper.FPCheckResult) in
+            switch result {
                 
-                //指纹验证
-                context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: msg, reply: { (success, errorTwo) in
-                    
-                    if success {
-                        //验证成功 直接更新UI慢的原因是因为没有切回主线程    需要切回主线程操作UI
-                        DispatchQueue.main.async {
-                            self.label.text = "成功解锁";
-                        }
-                    } else {
-                        //根据错误Code不一样，区分不同失败原因
-                        guard error != nil else {
-                            return
-                        }
-                        
-                        switch LAError(_nsError: error!).code {
-                            
-                        case LAError.userCancel:
-                            DispatchQueue.main.async  {
-                                self.label.text = "用户取消验证";
-                            }
-                        break;
-                        case LAError.systemCancel:
-                            DispatchQueue.main.async  {
-                                self.label.text = "系统取消验证";
-                            }
-                            break;
-                        case LAError.userFallback:
-                            DispatchQueue.main.async  {
-                                self.label.text = "用户解锁失败";
-                            }
-                            break;
-                        default :
-                                DispatchQueue.main.async {
-                                    self.label.text = "其他原因解锁失败";
-                                }
-                            break;
-                            
-                        }
-                        
-                    }
-                    
-                })
-            } else {
-                DispatchQueue.main.async {
-                    self.label.text = "您的设备不支持指纹解锁";
-                }
+            case .success:
+                self.label.text = "用户解锁成功"
+            case .failed:
+                self.label.text = "用户解锁失败"
+            case .passwordNotSet:
+                self.label.text = "未设置密码"
+            case .touchidNotSet:
+                self.label.text = "未设置指纹"
+            case .touchidNotAvailable:
+                self.label.text = "系统不支持"
             }
-        
         }
-        
     }
 }
 
